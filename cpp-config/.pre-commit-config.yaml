@@ -1,0 +1,23 @@
+---
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v4.5.0
+      hooks:
+          - id: check-json
+          - id: pretty-format-json
+          - id: end-of-file-fixer
+          - id: sort-simple-yaml
+          - id: trailing-whitespace
+          - id: check-yaml
+    - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
+      rev: 0.2.3
+      hooks:
+          - id: yamlfmt
+
+## Cpp hooks: ###
+    - repo: https://github.com/ItsZcx/pre-commit-hooks
+      rev: v1.0.0
+      hooks:
+          - id: clang-format
+          - id: cppcheck
+        #   - id: cpplint

@@ -1,0 +1,25 @@
+---
+    - id: clang-format
+      name: clang-format
+      description: Format C code using clang-format.
+      language: system
+      files: \.(c|cc|cxx|cpp|h|hpp|hxx)$
+      entry: sh -c 'if [ -f .clang-format ]; then find . -type d -name "build" -prune -o \( -iname "*.c" -o -iname "*.cc" -o -iname "*.cxx" -o -iname "*.cpp"
+          -o -iname "*.h" -o -iname "*.hpp" -o -iname "*.hxx" \) -print | sed "s/.*/\"&\"/" | xargs clang-format -i -style=file; else find . -type d -name
+          "build" -prune -o \( -iname "*.c" -o -iname "*.cc" -o -iname "*.cxx" -o -iname "*.cpp" -o -iname "*.h" -o -iname "*.hpp" -o -iname "*.hxx" \)
+          -print | sed "s/.*/\"&\"/" | xargs clang-format -i -style=Google; fi'
+      args: []
+    - id: cppcheck
+      name: cppcheck
+      description: Check correctness of C code using cppcheck.
+      language: system
+      files: \.(c|cc|cxx|cpp|h|hpp|hxx)$
+      entry: cppcheck --error-exitcode=1
+      args: [--enable=warning]
+    - id: cpplint
+      name: cpplint
+      description: Check style of C code using cpplint.
+      language: python
+      files: \.(c|cc|cxx|cpp|h|hpp|hxx)$
+      entry: cpplint
+      args: [--verbose=3]
