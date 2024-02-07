@@ -4,8 +4,8 @@
       description: Format C code using clang-format.
       language: system
       files: \.(c|cc|cxx|cpp|h|hpp|hxx)$
-      entry: sh -c 'if [ -f .clang-format ]; then git ls-files | grep -E '\.(c|cc|cxx|cpp|h|hpp|hxx)$' | sed "s/.*/\"&\"/" | xargs clang-format -i -style=file;
-          else git ls-files | grep -E '\.(c|cc|cxx|cpp|h|hpp|hxx)$' | sed "s/.*/\"&\"/" | xargs clang-format -i -style=Microsoft; fi'
+      entry: sh -c 'if [ -f .clang-format ]; then git ls-files | grep -E "\.(c|cc|cxx|cpp|h|hpp|hxx)$" | sed "s/.*/\"&\"/" | xargs clang-format -i -style=file;
+          else git ls-files | grep -E "\.(c|cc|cxx|cpp|h|hpp|hxx)$" | sed "s/.*/\"&\"/" | xargs clang-format -i -style=Microsoft; fi'
       args: []
     - id: cppcheck
       name: cppcheck
