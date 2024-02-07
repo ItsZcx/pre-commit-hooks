@@ -1,0 +1,30 @@
+---
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v4.5.0
+      hooks:
+          - id: check-json
+          - id: pretty-format-json
+          - id: end-of-file-fixer
+          - id: sort-simple-yaml
+          - id: trailing-whitespace
+          - id: check-added-large-files
+          - id: check-yaml
+          - id: check-ast
+          - id: name-tests-test
+    - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
+      rev: 0.2.3
+      hooks:
+          - id: yamlfmt
+    - repo: https://github.com/asottile/reorder-python-imports
+      rev: v3.12.0
+      hooks:
+          - id: reorder-python-imports
+    - repo: https://github.com/psf/black
+      rev: 24.1.1
+      hooks:
+          - id: black
+    - repo: https://github.com/PyCQA/bandit
+      rev: 1.7.7
+      hooks:
+          - id: bandit
