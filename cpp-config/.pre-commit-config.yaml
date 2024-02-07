@@ -16,7 +16,7 @@ repos:
 
 ## Cpp hooks: ###
     - repo: https://github.com/ItsZcx/pre-commit-hooks
-      rev: v1.0.0
+      rev: v1.0.1
       hooks:
           - id: clang-format
           - id: cppcheck

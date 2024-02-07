@@ -41,8 +41,8 @@ Note: The installation of `cpplint` is optional, as it's disabled by default in 
 
 To integrate these hooks into your project:
 
-1. Copy the `.pre-commit-config.yaml` and `.clang-format` (optional) files from the `cpp-config` directory to your project root.
-2. The `.pre-commit-config.yaml` file is preconfigured to utilize a personalized `.clang-format` file based on Google's formatting standards. If you prefer to use the default Google formatter, you can skip copying the `.clang-format` file.
+1. Copy the `.pre-commit-config.yaml` file from the `cpp-config` directory to your project root.
+2. The `.pre-commit-config.yaml` file is preconfigured to utilize a personalized `.clang-format` file if there is one present in the root of the repository. Otherwise it will use the default Microsoft formatter. There is an example of a `.clang-format` file in the folder.
 
 
 ### How to use python-config
