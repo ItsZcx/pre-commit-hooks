@@ -7,16 +7,15 @@ repos:
           - id: pretty-format-json
           - id: end-of-file-fixer
           - id: sort-simple-yaml
+          - id: check-added-large-files
           - id: trailing-whitespace
           - id: check-yaml
     - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
       rev: 0.2.3
       hooks:
           - id: yamlfmt
-
-## Cpp hooks: ###
     - repo: https://github.com/ItsZcx/pre-commit-hooks
-      rev: v1.0.1
+      rev: v1.1.0
       hooks:
           - id: clang-format
           - id: cppcheck
