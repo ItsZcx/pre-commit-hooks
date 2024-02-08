@@ -47,7 +47,7 @@ if [ "$#" -eq 1 ]; then
 else
     # Run pre-commit hooks using Docker container and display the output
     echo -e "[INFO] - Running Docker container..."
-    docker run --rm --name pre-commit --volume "$(pwd)":/code pre-commit
+    docker run --rm --name pre-commit --volume "$(pwd)":/code itszcx/pre-commit:1.2
     echo -e "[INFO] - Docker container removed...\n"
     cat .pre-commit-output.log
     rm -f .pre-commit-output.log

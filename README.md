@@ -1,21 +1,37 @@
 # Pre-Commit-Hooks
 
-Pre-commit-hooks is a project designed to enhance code quality and consistency by providing a collection of pre-commit hooks.
+Pre-commit-hooks is a project designed to enhance code quality and consistency by providing a collection of pre-commit hooks, those hooks can be run locally as well as with Docker.
 
 ## Table of Contents
 
 - [Installation](#installation)
+  - [Run via Docker](#run-via-docker)
+  - [Run locally](#run-locally)
 - [Usage](#usage)
-  - [C++ Configuration](#how-to-use-cpp-config)
-  - [Python Configuration](#how-to-use-python-config)
+  - [How to use cpp-config](#how-to-use-cpp-config)
+  - [How to use python-config](#how-to-use-python-config)
 - [Setting up and Executing the Pre-Commit-Hooks](#setting-up-and-executing-the-pre-commit-hooks)
+  - [Executing Pre-Commit-Hooks with docker](#executing-pre-commit-hooks-with-docker)
+  - [Executing Pre-Commit-Hooks locally](#executing-pre-commit-hooks-locally)
 - [Contributing](#contributing)
 
 ## Installation
 
-To utilize the pre-commit hooks, you'll need to install specific applications locally, as detailed in the usage section below.
+There are two way to utilize the pre-commit hooks, locally, downloading necessary dependecies and with Docker, without downloading anything.
 
-First, install `pre-commit` with the following command:
+If you want to have the hooks run in every single commit, refere to running it locally, if you prefere to decide when the hooks will run, refere to running it via Docker.
+
+For both options, you will have to copy some files/scripts present in this repository.
+
+### Run via Docker
+
+To run the pre-commit hooks via Docker, you only need to have `Docker` installed on your computer. Refer to the official Docker documentation for installation instructions.
+
+You can execute the hooks using a provided script whenever you deem it appropriate.
+
+### Run locally
+
+To utilize the pre-commit hooks locally, you'll need to install `pre-commit` with the following command:
 
 ```sh
 pip install pre-commit
@@ -23,35 +39,64 @@ pip install pre-commit
 
 ## Usage
 
-Once the pre-commit hooks are set up, they'll automatically execute with each commit, ensuring adherence to coding standards and detecting static analysis issues. If a hook identifies an error, the commit will be halted.
+Once the pre-commit hooks are set up, they will only run on the **TRACKED FILES IN THE REPOSITORY**. If a hook detects an error locally, the commit process will be stopped.
 
-You can find a general project usage `.pre-commit-config.yaml` file located at the root of the repository, available for use if needed.
+A general project usage `.pre-commit-config.yaml` file is available at the root of the repository for reference and use if needed.
 
 ### How to use cpp-config
 
 For C++ projects, you'll need to integrate these hooks into your project:
-
 1. Copy the `.pre-commit-config.yaml` file from the `cpp-config` directory to your project root.
+
 2. The `.pre-commit-config.yaml` file is preconfigured to utilize a personalized `.clang-format` file if there is one present in the root of the repository. Otherwise it will use the default Microsoft formatter. There is an example of a `.clang-format` file in the folder.
 
+#### How to use cpp-config with Docker or locally
+
+Refer to this documentation if you want to run them with Docker
+  - [Executing Pre-Commit-Hooks with Docker](#executing-pre-commit-hooks-with-docker)
+
+Refer to this documentation if you want to run them locally
+  - [Executing Pre-Commit-Hooks locally](#executing-pre-commit-hooks-locally)
 
 ### How to use python-config
 
-Work in progress.
+For python projects, you'll need to integrate these hooks into your project:
+1. Copy the `.pre-commit-config.yaml` file from the `python-config` directory to your project root.
+
+#### How to use python-config with Docker or locally
+
+Refer to this documentation if you want to run them with Docker
+  - [Executing Pre-Commit-Hooks with Docker](#executing-pre-commit-hooks-with-docker)
+
+Refer to this documentation if you want to run them locally
+  - [Executing Pre-Commit-Hooks locally](#executing-pre-commit-hooks-locally)
 
 ## Setting up and Executing the Pre-Commit-Hooks
 
-Once you've copied over the required files and installed the necessary applications, the next step is to configure your Git repository to utilize the pre-commit hooks. Follow these steps:
+### Executing Pre-Commit-Hooks with Docker
 
-1. Move to your local directory using cd.
+To use it with Docker, you will additionally need to copy the script `pre-commit.sh` into your root repository.
 
-2. Run the command below to set up pre-commit in your **local** git repository:
+Whenever you wish to run the hooks, simply execute the script as follows:
+```sh
+./pre-commit.sh
+```
+
+The script will create a container with a published image, connected to your code via a volume, where the hooks will be executed. After execution, the script will display the output of the hooks and their status.
+
+Please note that the script will create two temporary files, `.pre-commit-keeper.log` and `.pre-commit-output.log`. These files will be automatically deleted upon the completion of the script.
+
+### Executing Pre-Commit-Hooks locally
+
+Once you've copied over the required files, the next step is to configure your Git repository to utilize the pre-commit hooks locally. Follow these steps:
+
+1. Run the command below to set up pre-commit in your **local** git repository:
 
 ```sh
 pre-commit install
 ```
 
-3. After installing pre-commit, it's advisable to run the following command:
+2. After installing pre-commit, it's advisable to run the following command:
 
 ```sh
 pre-commit run --all-files
