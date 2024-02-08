@@ -29,17 +29,7 @@ You can find a general project usage `.pre-commit-config.yaml` file located at t
 
 ### How to use cpp-config
 
-For C++ projects, you'll need to locally install the following applications:
-
-```sh
-sudo apt install clang-format -y
-sudo apt install cppcheck -y
-sudo apt install cpplint -y
-```
-
-Note: The installation of `cpplint` is optional, as it's disabled by default in the `.pre-commit-config.yaml` file.
-
-To integrate these hooks into your project:
+For C++ projects, you'll need to integrate these hooks into your project:
 
 1. Copy the `.pre-commit-config.yaml` file from the `cpp-config` directory to your project root.
 2. The `.pre-commit-config.yaml` file is preconfigured to utilize a personalized `.clang-format` file if there is one present in the root of the repository. Otherwise it will use the default Microsoft formatter. There is an example of a `.clang-format` file in the folder.
