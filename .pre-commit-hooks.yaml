@@ -14,10 +14,3 @@
       files: \.(c|cc|cxx|cpp|h|hpp|hxx)$
       entry: cppcheck --error-exitcode=1
       args: [--enable=warning]
-    - id: cpplint
-      name: cpplint
-      description: Check style of C code using cpplint.
-      language: python
-      files: \.(c|cc|cxx|cpp|h|hpp|hxx)$
-      entry: cpplint
-      args: [--verbose=3]

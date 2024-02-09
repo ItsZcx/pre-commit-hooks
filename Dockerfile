@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND="noninteractive"
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -qqy curl git && \
-    apt-get install --no-install-recommends -qqy cppcheck clang-format cpplint && \
+    apt-get install --no-install-recommends -qqy cppcheck clang-format && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
