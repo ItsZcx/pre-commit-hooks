@@ -14,10 +14,17 @@
       files: \.(c|cc|cxx|cpp|h|hpp|hxx)$
       entry: cppcheck --error-exitcode=1
       args: [--enable=warning]
-    - id: cpplint
-      name: cpplint
-      description: Check style of C code using cpplint.
-      language: python
-      files: \.(c|cc|cxx|cpp|h|hpp|hxx)$
-      entry: cpplint
-      args: [--verbose=3]
+    - id: hlint
+      name: hlint
+      description: Haskell code checker. It gives suggestions to improve code.
+      language: system
+      files: \.hs$
+      entry: hlint .
+      args: []
+    - id: fourmolu
+      name: fourmolu
+      description: Haskell code formatter.
+      language: system
+      files: \.hs$
+      entry: fourmolu -i .
+      args: []

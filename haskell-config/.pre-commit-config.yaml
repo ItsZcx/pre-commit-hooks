@@ -10,12 +10,8 @@ repos:
           - id: check-added-large-files
           - id: trailing-whitespace
           - id: check-yaml
-    - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
-      rev: 0.2.3
-      hooks:
-          - id: yamlfmt
     - repo: https://github.com/ItsZcx/pre-commit-hooks
-      rev: v1.2.1
+      rev: v1.2.2
       hooks:
-          - id: clang-format
-          - id: cppcheck
+          - id: hlint
+          - id: fourmolu
