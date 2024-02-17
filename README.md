@@ -10,8 +10,9 @@ Pre-commit-hooks is a project designed to enhance code quality and consistency b
 - [Usage](#usage)
   - [How to use cpp-config](#how-to-use-cpp-config)
   - [How to use python-config](#how-to-use-python-config)
+  - [How to use haskell-config](#how-to-use-haskell-config)
 - [Setting up and Executing the Pre-Commit-Hooks](#setting-up-and-executing-the-pre-commit-hooks)
-  - [Executing Pre-Commit-Hooks with docker](#executing-pre-commit-hooks-with-docker)
+  - [Executing Pre-Commit-Hooks with Docker](#executing-pre-commit-hooks-with-docker)
   - [Executing Pre-Commit-Hooks locally](#executing-pre-commit-hooks-locally)
 - [Contributing](#contributing)
 
@@ -48,7 +49,7 @@ A general project usage `.pre-commit-config.yaml` file is available at the root 
 For C++ projects, you'll need to integrate these hooks into your project:
 1. Copy the `.pre-commit-config.yaml` file from the `cpp-config` directory to your project root.
 
-2. The `.pre-commit-config.yaml` file is preconfigured to utilize a personalized `.clang-format` file if there is one present in the root of the repository. Otherwise it will use the default Microsoft formatter. There is an example of a `.clang-format` file in the folder.
+2. The `.pre-commit-config.yaml` file is preconfigured to utilize a personalized `.clang-format` file if there is one present in the root of the repository. Otherwise it will use the default Microsoft formatter. There is a `.clang-format` file in the folder.
 
 #### How to use cpp-config with Docker or locally
 
@@ -60,10 +61,25 @@ Refer to this documentation if you want to run them locally
 
 ### How to use python-config
 
-For python projects, you'll need to integrate these hooks into your project:
+For Python projects, you'll need to integrate these hooks into your project:
 1. Copy the `.pre-commit-config.yaml` file from the `python-config` directory to your project root.
 
 #### How to use python-config with Docker or locally
+
+Refer to this documentation if you want to run them with Docker
+  - [Executing Pre-Commit-Hooks with Docker](#executing-pre-commit-hooks-with-docker)
+
+Refer to this documentation if you want to run them locally
+  - [Executing Pre-Commit-Hooks locally](#executing-pre-commit-hooks-locally)
+
+### How to use haskell-config
+
+For Haskell projects, you'll need to integrate these hooks into your project:
+1. Copy the `.pre-commit-config.yaml` file from the `haskell-config` directory to your project root.
+
+2. Fourmolu is preconfigured to utilize a personalized `fourmolu.yaml` file if there is one present in the root of the repository. Otherwise it will use the default fourmolu formatting configuration. There is a `fourmolu.yaml` file in the folder in case you want one.
+
+#### How to use haskell-config with Docker or locally
 
 Refer to this documentation if you want to run them with Docker
   - [Executing Pre-Commit-Hooks with Docker](#executing-pre-commit-hooks-with-docker)
@@ -102,7 +118,7 @@ pre-commit install
 pre-commit run --all-files
 ```
 
-This command ensures that all hooks are executed for all files previously added to the repository.
+This command ensures that all hooks are executed for all files previously added to the repository. If there is any error about not finding a binary, you will probably have to locally install that necessary application with apt, stack, pip... etc.
 
 To ensure that you have the latest versions of the hooks, you can periodically run the following command:
 
