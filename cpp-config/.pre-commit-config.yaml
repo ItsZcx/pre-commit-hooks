@@ -14,8 +14,13 @@ repos:
       rev: 0.2.3
       hooks:
           - id: yamlfmt
+    - repo: https://github.com/AleksaC/hadolint-py
+      rev: v2.12.0
+      hooks:
+          - id: hadolint
+            args: [--ignore, DL3025, --ignore, DL3018, --ignore, DL3008, --ignore, DL3013]
     - repo: https://github.com/ItsZcx/pre-commit-hooks
-      rev: v1.2.1
+      rev: v1.3.0
       hooks:
           - id: clang-format
           - id: cppcheck
