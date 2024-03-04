@@ -51,7 +51,7 @@ For C++ projects, you'll need to integrate these hooks into your project:
 
 2. The `.pre-commit-config.yaml` file is preconfigured to utilize a personalized `.clang-format` file if there is one present in the root of the repository. Otherwise it will use the default Microsoft formatter. There is a `.clang-format` file in the folder.
 
-#### How to use cpp-config with Docker or locally
+### How to use cpp-config with Docker or locally
 
 Refer to this documentation if you want to run them with Docker
   - [Executing Pre-Commit-Hooks with Docker](#executing-pre-commit-hooks-with-docker)
@@ -63,6 +63,8 @@ Refer to this documentation if you want to run them locally
 
 For Python projects, you'll need to integrate these hooks into your project:
 1. Copy the `.pre-commit-config.yaml` file from the `python-config` directory to your project root.
+
+2. The `.pre-commit-config.yaml` file is preconfigured to utilize a personalized `.ruff.toml` file if there is one present in the root of the repository. Otherwise it will use the default ruff settings for formatting and linting. There is a `.ruff.toml` file in the folder.
 
 #### How to use python-config with Docker or locally
 

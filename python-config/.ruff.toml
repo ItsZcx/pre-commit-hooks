@@ -1,0 +1,29 @@
+extend-exclude = [
+    ".venv",
+    ".env"
+]
+fix = true
+line-length = 120
+indent-width = 4
+# target-version = "VERSION"
+
+[format]
+exclude = []
+preview = false
+line-ending = "lf"
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+docstring-code-line-length = 110
+skip-magic-trailing-comma = false
+
+[lint]
+exclude = []
+fixable = ["ALL"]
+ignore = []
+preview = false
+extend-ignore = []
+extend-fixable = []
+allowed-confusables = []
+explicit-preview-rules = false
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
