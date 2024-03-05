@@ -44,6 +44,9 @@ Once the pre-commit hooks are set up, they will only run on the **TRACKED FILES 
 
 A general project usage `.pre-commit-config.yaml` file is available at the root of the repository for reference and use if needed.
 
+### How to use c-config
+ADD INFO
+
 ### How to use cpp-config
 
 For C++ projects, you'll need to integrate these hooks into your project:
