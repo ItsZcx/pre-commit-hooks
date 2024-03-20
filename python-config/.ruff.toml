@@ -5,6 +5,7 @@ extend-exclude = [
 fix = true
 line-length = 120
 indent-width = 4
+# This is crucial for enabling specific functionalities in Ruff based on Python version compatibility.
 # target-version = "VERSION"
 
 [format]

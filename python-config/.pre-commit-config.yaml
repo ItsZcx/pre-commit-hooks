@@ -3,8 +3,6 @@ repos:
     - repo: https://github.com/pre-commit/pre-commit-hooks
       rev: v4.5.0
       hooks:
-          - id: check-json
-          - id: pretty-format-json
           - id: end-of-file-fixer
           - id: sort-simple-yaml
           - id: trailing-whitespace
@@ -12,6 +10,9 @@ repos:
           - id: check-yaml
           - id: check-ast
           - id: name-tests-test
+          - id: check-json
+          - id: pretty-format-json
+            args: [--autofix, --indent, '4', --no-sort-keys]
     - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
       rev: 0.2.3
       hooks:
@@ -26,7 +27,7 @@ repos:
       hooks:
           - id: reorder-python-imports
     - repo: https://github.com/astral-sh/ruff-pre-commit
-      rev: v0.3.0
+      rev: v0.3.3
       hooks:
           - id: ruff
           - id: ruff-format

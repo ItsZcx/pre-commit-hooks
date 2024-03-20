@@ -8,12 +8,13 @@ Pre-commit-hooks is a project designed to enhance code quality and consistency b
   - [Run via Docker](#run-via-docker)
   - [Run locally](#run-locally)
 - [Usage](#usage)
+  - [How to use c-config](#how-to-use-c-config)
   - [How to use cpp-config](#how-to-use-cpp-config)
   - [How to use python-config](#how-to-use-python-config)
   - [How to use haskell-config](#how-to-use-haskell-config)
-- [Setting up and Executing the Pre-Commit-Hooks](#setting-up-and-executing-the-pre-commit-hooks)
-  - [Executing Pre-Commit-Hooks with Docker](#executing-pre-commit-hooks-with-docker)
-  - [Executing Pre-Commit-Hooks locally](#executing-pre-commit-hooks-locally)
+- [Executing the Pre-Commit-Hooks](#executing-the-pre-commit-hooks)
+  - [Executing with Docker](#executing-with-docker)
+  - [Executing locally](#executing-locally)
 - [Contributing](#contributing)
 
 ## Installation
@@ -45,7 +46,9 @@ Once the pre-commit hooks are set up, they will only run on the **TRACKED FILES 
 A general project usage `.pre-commit-config.yaml` file is available at the root of the repository for reference and use if needed.
 
 ### How to use c-config
-ADD INFO
+
+For C projects, you'll need to integrate these hooks into your project:
+1. Copy the `.pre-commit-config.yaml` file from the `c-config` directory to your project root.
 
 ### How to use cpp-config
 
@@ -54,28 +57,12 @@ For C++ projects, you'll need to integrate these hooks into your project:
 
 2. The `.pre-commit-config.yaml` file is preconfigured to utilize a personalized `.clang-format` file if there is one present in the root of the repository. Otherwise it will use the default Microsoft formatter. There is a `.clang-format` file in the folder.
 
-### How to use cpp-config with Docker or locally
-
-Refer to this documentation if you want to run them with Docker
-  - [Executing Pre-Commit-Hooks with Docker](#executing-pre-commit-hooks-with-docker)
-
-Refer to this documentation if you want to run them locally
-  - [Executing Pre-Commit-Hooks locally](#executing-pre-commit-hooks-locally)
-
 ### How to use python-config
 
 For Python projects, you'll need to integrate these hooks into your project:
 1. Copy the `.pre-commit-config.yaml` file from the `python-config` directory to your project root.
 
 2. The `.pre-commit-config.yaml` file is preconfigured to utilize a personalized `.ruff.toml` file if there is one present in the root of the repository. Otherwise it will use the default ruff settings for formatting and linting. There is a `.ruff.toml` file in the folder.
-
-#### How to use python-config with Docker or locally
-
-Refer to this documentation if you want to run them with Docker
-  - [Executing Pre-Commit-Hooks with Docker](#executing-pre-commit-hooks-with-docker)
-
-Refer to this documentation if you want to run them locally
-  - [Executing Pre-Commit-Hooks locally](#executing-pre-commit-hooks-locally)
 
 ### How to use haskell-config
 
@@ -84,17 +71,17 @@ For Haskell projects, you'll need to integrate these hooks into your project:
 
 2. Fourmolu is preconfigured to utilize a personalized `fourmolu.yaml` file if there is one present in the root of the repository. Otherwise it will use the default fourmolu formatting configuration. There is a `fourmolu.yaml` file in the folder in case you want one.
 
-#### How to use haskell-config with Docker or locally
+### How to use x-config with Docker or locally
 
 Refer to this documentation if you want to run them with Docker
-  - [Executing Pre-Commit-Hooks with Docker](#executing-pre-commit-hooks-with-docker)
+  - [Executing with Docker](#executing-with-docker)
 
 Refer to this documentation if you want to run them locally
-  - [Executing Pre-Commit-Hooks locally](#executing-pre-commit-hooks-locally)
+  - [Executing locally](#executing-locally)
 
-## Setting up and Executing the Pre-Commit-Hooks
+## Executing the Pre-Commit-Hooks
 
-### Executing Pre-Commit-Hooks with Docker
+### Executing with Docker
 
 To use it with Docker, you will additionally need to copy the script `pre-commit.sh` into your root repository.
 
@@ -107,7 +94,7 @@ The script will create a container with a published image, connected to your cod
 
 Please note that the script will create two temporary files, `.pre-commit-keeper.log` and `.pre-commit-output.log`. These files will be automatically deleted upon the completion of the script.
 
-### Executing Pre-Commit-Hooks locally
+### Executing locally
 
 Once you've copied over the required files, the next step is to configure your Git repository to utilize the pre-commit hooks locally. Follow these steps:
 
